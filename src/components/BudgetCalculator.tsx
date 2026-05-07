@@ -306,7 +306,7 @@ export const BudgetCalculator = () => {
   const percentageSum = getAccountPercentages().reduce((sum, p) => sum + p, 0);
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-8">
+    <div className="w-full mx-auto space-y-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
