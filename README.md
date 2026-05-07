@@ -1,47 +1,73 @@
-# Calculadora de Presupuesto Publicitario — Flor y Julio Agencia
+# Welcome to your Lovable project
 
-Vite + React + TypeScript + Tailwind + shadcn/ui. Distribuye un presupuesto publicitario por bloques (con estrategia de aumento o reducción), calcula anuncios por conjunto y distribución entre cuentas, y exporta a PDF / CSV.
+## Project info
 
-Producción: [adscelerator.es/calculadora-de-presupuestos](https://adscelerator.es/calculadora-de-presupuestos) (deploy via GHL Sites + bundle servido por JSDelivr desde este repo).
+**URL**: https://lovable.dev/projects/7ddc1058-bfd9-496a-bc23-8a8d4ba8da93
 
-## Servir desde JSDelivr
+## How can I edit this code?
 
-GHL Media Library no permite subir `.js` por seguridad. Para que el bundle sea consumible desde GHL, este repo lo aloja y JSDelivr lo cachea con MIME types correctos:
+There are several ways of editing your application.
 
-- **JS bundle**: `https://cdn.jsdelivr.net/gh/IAbyLio/calculadora-de-presupuestos-fyj@main/dist/calc-app.js`
-- **CSS bundle**: `https://cdn.jsdelivr.net/gh/IAbyLio/calculadora-de-presupuestos-fyj@main/dist/calc-app.css`
+**Use Lovable**
 
-JSDelivr cachea ~12h por default. Para purge manual tras un push nuevo:
+Simply visit the [Lovable Project](https://lovable.dev/projects/7ddc1058-bfd9-496a-bc23-8a8d4ba8da93) and start prompting.
 
-```
-curl https://purge.jsdelivr.net/gh/IAbyLio/calculadora-de-presupuestos-fyj@main/dist/calc-app.js
-curl https://purge.jsdelivr.net/gh/IAbyLio/calculadora-de-presupuestos-fyj@main/dist/calc-app.css
-```
+Changes made via Lovable will be committed automatically to this repo.
 
-## Desarrollo
+**Use your preferred IDE**
 
-```sh
-npm install
-npm run dev   # http://localhost:8080
-```
+If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
 
-## Build production
+The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+
+Follow these steps:
 
 ```sh
-npm run build
-# dist/calc-app.js + dist/calc-app.css → commit + push para que JSDelivr los sirva
+# Step 1: Clone the repository using the project's Git URL.
+git clone <YOUR_GIT_URL>
+
+# Step 2: Navigate to the project directory.
+cd <YOUR_PROJECT_NAME>
+
+# Step 3: Install the necessary dependencies.
+npm i
+
+# Step 4: Start the development server with auto-reloading and an instant preview.
+npm run dev
 ```
 
-`vite.config.ts` está configurado con `inlineDynamicImports` y filenames deterministas (`calc-app.js`, `calc-app.css`) para que el bundle entre como 2 archivos sin imports cruzados.
+**Edit a file directly in GitHub**
 
-## Backend
+- Navigate to the desired file(s).
+- Click the "Edit" button (pencil icon) at the top right of the file view.
+- Make your changes and commit the changes.
 
-Lead capture: el modal POSTea al webhook n8n `Calc-Presupuesto-Leads-Webhook` (`/webhook/calc-lead-v2`) con schema canonical Landing Lead Capture. Frontend hooks: [`src/lib/leadCapture.ts`](src/lib/leadCapture.ts) + [`src/lib/utmCapture.ts`](src/lib/utmCapture.ts) + [`src/lib/metaCookies.ts`](src/lib/metaCookies.ts).
+**Use GitHub Codespaces**
 
-## Stack
+- Navigate to the main page of your repository.
+- Click on the "Code" button (green button) near the top right.
+- Select the "Codespaces" tab.
+- Click on "New codespace" to launch a new Codespace environment.
+- Edit files directly within the Codespace and commit and push your changes once you're done.
 
-- Vite 5 + React 18 + TypeScript 5.8
-- Tailwind 3 + shadcn/ui
-- jsPDF + jspdf-autotable (export PDF)
-- react-hook-form + zod (modal de captura)
-- Framer Motion (animaciones)
+## What technologies are used for this project?
+
+This project is built with:
+
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
+
+## How can I deploy this project?
+
+Simply open [Lovable](https://lovable.dev/projects/7ddc1058-bfd9-496a-bc23-8a8d4ba8da93) and click on Share -> Publish.
+
+## Can I connect a custom domain to my Lovable project?
+
+Yes, you can!
+
+To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+
+Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)

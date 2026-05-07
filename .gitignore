@@ -8,12 +8,9 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+dist
 dist-ssr
 *.local
-.env.local
-
-# NOTE: dist/ NO esta ignorado - se commitea para que JSDelivr lo sirva
-# (calc-app.js y calc-app.css son los assets que GHL apunta via cdn.jsdelivr.net)
 
 # Editor directories and files
 .vscode/*

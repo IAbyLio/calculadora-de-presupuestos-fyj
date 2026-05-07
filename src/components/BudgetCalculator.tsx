@@ -312,7 +312,7 @@ export const BudgetCalculator = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <Card className="p-8 shadow-lg">
+        <Card className="p-5 sm:p-8 shadow-lg">
           <div className="space-y-6">
             <div>
               <h1 className="text-3xl font-bold text-foreground mb-2">
@@ -680,7 +680,7 @@ export const BudgetCalculator = () => {
 
             return (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <Card className="p-6 text-center shadow-md">
+                <Card className="p-4 sm:p-6 text-center shadow-md">
                   <p className="text-sm text-muted-foreground mb-2 uppercase tracking-wide">
                     Menor inversión diaria
                   </p>
@@ -688,7 +688,7 @@ export const BudgetCalculator = () => {
                     {formatCurrency(minDailyBudget)}
                   </p>
                 </Card>
-                <Card className="p-6 text-center shadow-md">
+                <Card className="p-4 sm:p-6 text-center shadow-md">
                   <p className="text-sm text-muted-foreground mb-2 uppercase tracking-wide">
                     Mayor inversión diaria
                   </p>
@@ -696,7 +696,7 @@ export const BudgetCalculator = () => {
                     {formatCurrency(maxDailyBudget)}
                   </p>
                 </Card>
-                <Card className="p-6 text-center shadow-md">
+                <Card className="p-4 sm:p-6 text-center shadow-md">
                   <p className="text-sm text-muted-foreground mb-2 uppercase tracking-wide">Ratio inicial/final</p>
                   <p className="text-3xl font-bold text-primary">
                     {ratio > 0 ? ratio.toFixed(1) : "0"}x

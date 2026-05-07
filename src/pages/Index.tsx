@@ -37,7 +37,7 @@ const Index = () => {
         </div>
       </header>
 
-      <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-8 md:py-12">
+      <main className="mx-auto w-full max-w-7xl flex-1 px-5 sm:px-6 py-8 md:py-12">
         <BudgetCalculator />
       </main>
 
