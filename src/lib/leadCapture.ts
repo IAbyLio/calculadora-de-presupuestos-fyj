@@ -24,7 +24,7 @@ export interface LeadPayload {
   };
   consent: boolean;
   custom_fields: {
-    calc_budget_value?: number;
+    valor_presupuesto_calculado?: number;
     landing_variant: "v1";
     lead_magnet: "calculadora-presupuesto";
   };
@@ -78,7 +78,7 @@ function buildPayload(
     },
     consent: formData.consent === true,
     custom_fields: {
-      calc_budget_value: options.budgetValue,
+      valor_presupuesto_calculado: options.budgetValue,
       landing_variant: "v1",
       lead_magnet: "calculadora-presupuesto",
     },
