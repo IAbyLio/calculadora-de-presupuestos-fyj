@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Presupuesto Publicitario | Flor &amp; Julio</title>
+    <meta name="description" content="Distribuye tu presupuesto publicitario por bloques, calcula anuncios por conjunto y exporta el plan en PDF. Gratis y sin registro previo." />
+    <meta name="author" content="Flor &amp; Julio" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" type="image/png" href="/favicon.png" />
+
+    <!-- Anti-flash: aplica el tema antes del primer paint (dark = default) -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme");
+          var theme = saved || "dark";
+          if (theme === "dark") document.documentElement.classList.add("dark");
+        } catch (e) { /* localStorage no disponible */ }
+      })();
+    </script>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Calculadora de Presupuesto Publicitario | Flor &amp; Julio" />
+    <meta property="og:description" content="Distribuye tu presupuesto publicitario por bloques, calcula anuncios por conjunto y exporta el plan en PDF. Gratis." />
+    <meta property="og:image" content="/favicon.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Calculadora de Presupuesto Publicitario | Flor &amp; Julio" />
+    <meta name="twitter:description" content="Distribuye tu presupuesto publicitario por bloques, calcula anuncios por conjunto y exporta el plan en PDF. Gratis." />
+    <script type="module" crossorigin src="/calc-app.js"></script>
+    <link rel="stylesheet" crossorigin href="/calc-app.css">
+  </head>
+
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
