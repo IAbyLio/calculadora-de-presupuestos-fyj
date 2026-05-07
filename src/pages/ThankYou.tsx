@@ -10,7 +10,7 @@ import { trackEvent } from "@/lib/metaPixel";
 
 const ThankYou = () => {
   useEffect(() => {
-    trackEvent("CompleteRegistration", { content_name: "calculadora-presupuesto" });
+    trackEvent("CompleteRegistration");
   }, []);
 
   return (

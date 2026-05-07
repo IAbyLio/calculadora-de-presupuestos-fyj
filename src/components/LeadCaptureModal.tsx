@@ -96,7 +96,7 @@ export const LeadCaptureModal = ({
 
     setSubmitting(true);
     try {
-      const { eventId } = await submitLead(
+      await submitLead(
         {
           email: values.email,
           consent: values.consent,
@@ -105,12 +105,7 @@ export const LeadCaptureModal = ({
       );
 
       if (typeof window !== "undefined" && typeof window.fbq === "function") {
-        window.fbq(
-          "track",
-          "Lead",
-          { value: budgetValue ?? 0, currency: "EUR" },
-          { eventID: eventId }
-        );
+        window.fbq("track", "Lead");
       }
 
       onSuccess();
