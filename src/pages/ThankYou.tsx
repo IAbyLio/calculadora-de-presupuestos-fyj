@@ -49,11 +49,10 @@ const ThankYou = () => {
 
             <div className="space-y-2">
               <h1 className="text-2xl md:text-3xl font-bold text-foreground">
-                ¡Listo! Te lo enviamos a tu email
+                ¡Listo! Tu PDF se descargó
               </h1>
               <p className="text-muted-foreground leading-relaxed">
-                Tu PDF se está descargando ahora mismo. Además, te llegará a tu email
-                junto con material complementario para sacarle el máximo a tu presupuesto.
+                Revisalo en tu carpeta de descargas y empezá a aplicar el plan a tus campañas.
               </p>
             </div>
 
