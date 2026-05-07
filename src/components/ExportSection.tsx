@@ -99,11 +99,7 @@ export const ExportSection = ({ data, showAdsCalculator, showAccountDistribution
 
     setModalOpen(false);
 
-    // Full reload a /gracias para forzar el redirect aunque jsPDF/blob hayan
-    // tocado el history del browser. El download ya iniciado no se cancela.
-    setTimeout(() => {
-      window.location.href = "/gracias";
-    }, 1200);
+    setTimeout(() => navigate("/gracias"), 1200);
   };
 
   return (
