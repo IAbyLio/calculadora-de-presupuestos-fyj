@@ -13,6 +13,7 @@ import { AttributionParams, getCapturedAttribution } from "./utmCapture";
 import { getFbc, getFbp } from "./metaCookies";
 
 export interface LeadFormData {
+  name: string;
   email: string;
   consent: boolean;
 }
@@ -21,6 +22,7 @@ export interface LeadPayload {
   stage: "lead_submitted";
   contact: {
     email: string;
+    name: string;
   };
   consent: boolean;
   custom_fields: {
@@ -75,6 +77,7 @@ function buildPayload(
     stage: "lead_submitted",
     contact: {
       email: formData.email.trim().toLowerCase(),
+      name: formData.name.trim(),
     },
     consent: formData.consent === true,
     custom_fields: {

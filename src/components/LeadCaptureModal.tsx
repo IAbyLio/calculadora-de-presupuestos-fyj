@@ -29,6 +29,10 @@ import { submitLead } from "@/lib/leadCapture";
  */
 
 const schema = z.object({
+  name: z
+    .string()
+    .trim()
+    .min(2, "El nombre tiene que tener al menos 2 caracteres"),
   email: z
     .string()
     .trim()
@@ -67,6 +71,7 @@ export const LeadCaptureModal = ({
   const form = useForm<FormValues>({
     resolver: zodResolver(schema),
     defaultValues: {
+      name: "",
       email: "",
       consent: false,
       website: "",
@@ -98,15 +103,12 @@ export const LeadCaptureModal = ({
     try {
       await submitLead(
         {
+          name: values.name,
           email: values.email,
           consent: values.consent,
         },
         { budgetValue }
       );
-
-      if (typeof window !== "undefined" && typeof window.fbq === "function") {
-        window.fbq("track", "Lead");
-      }
 
       onSuccess();
     } catch (error) {
@@ -155,6 +157,22 @@ export const LeadCaptureModal = ({
               autoComplete="off"
               {...form.register("website")}
             />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="lead-name">
+              Tu nombre <span className="text-destructive">*</span>
+            </Label>
+            <Input
+              id="lead-name"
+              type="text"
+              autoComplete="given-name"
+              placeholder="Tu nombre"
+              {...form.register("name")}
+            />
+            {form.formState.errors.name && (
+              <p className="text-sm text-destructive">{form.formState.errors.name.message}</p>
+            )}
           </div>
 
           <div className="space-y-2">
