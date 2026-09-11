@@ -10,6 +10,7 @@ import { exportToCSV, exportToPDF, ExportData, ExportOptions } from "@/lib/expor
 import { toast } from "sonner";
 import { LeadCaptureModal } from "./LeadCaptureModal";
 import { useLeadCapture } from "@/hooks/useLeadCapture";
+import { submitLeadByIdentity } from "@/lib/leadCapture";
 
 interface ExportSectionProps {
   data: ExportData;
@@ -30,7 +31,7 @@ export const ExportSection = ({ data, showAdsCalculator, showAccountDistribution
   const [isExporting, setIsExporting] = useState(false);
 
   // Lead capture gating
-  const { submitted: leadSubmitted, refresh: refreshLeadFlag } = useLeadCapture();
+  const { submitted: leadSubmitted, contactId, refresh: refreshLeadFlag } = useLeadCapture();
   const [modalOpen, setModalOpen] = useState(false);
   const pendingActionRef = useRef<PendingAction>(null);
 
@@ -68,8 +69,21 @@ export const ExportSection = ({ data, showAdsCalculator, showAccountDistribution
     }
   };
 
+  /**
+   * Contacto conocido (`?k=` / `fyj_cid`) sin registro previo: se manda un
+   * unico `lead_submitted` por identidad (fire-and-forget, nunca bloquea) y se
+   * exporta sin modal. Sin navegar a /gracias: no es un lead nuevo, asi que no
+   * dispara CompleteRegistration. Devuelve true si tomo este camino.
+   */
+  const exportByIdentity = (): boolean => {
+    if (!contactId) return false;
+    void submitLeadByIdentity(contactId, { budgetValue: data.totalBudget });
+    refreshLeadFlag();
+    return true;
+  };
+
   const handleExportCSV = () => {
-    if (leadSubmitted) {
+    if (leadSubmitted || exportByIdentity()) {
       runExportCSV();
       return;
     }
@@ -78,7 +92,7 @@ export const ExportSection = ({ data, showAdsCalculator, showAccountDistribution
   };
 
   const handleExportPDF = () => {
-    if (leadSubmitted) {
+    if (leadSubmitted || exportByIdentity()) {
       void runExportPDF();
       return;
     }
