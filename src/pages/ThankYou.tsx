@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { CheckCircle2, Calculator, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,6 +9,15 @@ import logo from "@/assets/logo-flor-y-julio.png";
 import { trackEvent } from "@/lib/metaPixel";
 
 const ThankYou = () => {
+  // "pdf" | "csv" desde ExportSection; si se recarga /gracias no hay state → título genérico.
+  const formato = (useLocation().state as { formato?: string } | null)?.formato;
+  const titulo =
+    formato === "pdf"
+      ? "¡Listo! Tu PDF se ha descargado"
+      : formato === "csv"
+        ? "¡Listo! Tu CSV se ha descargado"
+        : "¡Listo! Tu presupuesto se ha descargado";
+
   useEffect(() => {
     trackEvent("CompleteRegistration");
   }, []);
@@ -40,7 +49,7 @@ const ThankYou = () => {
           transition={{ duration: 0.4 }}
           className="w-full max-w-xl"
         >
-          <Card className="p-8 md:p-10 shadow-lg space-y-6 text-center">
+          <Card className="p-6 md:p-10 shadow-lg space-y-6 text-center">
             <div className="flex justify-center">
               <div className="rounded-full bg-accent/40 p-4">
                 <CheckCircle2 className="h-12 w-12 text-secondary" strokeWidth={2} />
@@ -49,10 +58,10 @@ const ThankYou = () => {
 
             <div className="space-y-2">
               <h1 className="text-2xl md:text-3xl font-bold text-foreground">
-                ¡Listo! Tu PDF se descargó
+                {titulo}
               </h1>
               <p className="text-muted-foreground leading-relaxed">
-                Revisalo en tu carpeta de descargas y empezá a aplicar el plan a tus campañas.
+                Revísalo en tu carpeta de descargas y empieza a aplicar el plan a tus campañas.
               </p>
             </div>
 
@@ -70,7 +79,7 @@ const ThankYou = () => {
               <Button
                 asChild
                 size="lg"
-                className="gap-2 font-semibold text-base shadow-md hover:shadow-lg transition-all active:shadow-pressed active:translate-y-0.5"
+                className="h-auto w-full min-h-11 whitespace-normal px-4 py-3 sm:w-auto sm:px-8 gap-2 font-semibold text-[15px] sm:text-base shadow-md hover:shadow-lg transition-all active:shadow-pressed active:translate-y-0.5"
               >
                 <Link to="/libre">
                   <Calculator className="h-5 w-5" />

@@ -131,7 +131,7 @@ export const LeadCaptureModal = ({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Descargá tu plan de presupuesto</DialogTitle>
+          <DialogTitle>Descarga tu plan de presupuesto</DialogTitle>
           <DialogDescription>
             Déjanos tu email y la descarga arranca al instante.
           </DialogDescription>

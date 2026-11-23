@@ -113,7 +113,8 @@ export const ExportSection = ({ data, showAdsCalculator, showAccountDistribution
 
     setModalOpen(false);
 
-    setTimeout(() => navigate("/gracias"), 1200);
+    // El formato viaja en el state del router para que /gracias diga PDF o CSV (sin state → genérico).
+    setTimeout(() => navigate("/gracias", { state: { formato: action } }), 1200);
   };
 
   return (

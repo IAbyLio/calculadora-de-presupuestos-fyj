@@ -421,15 +421,15 @@ export const BudgetCalculator = () => {
                   <div>
                     <p className="font-semibold mb-1.5">¿Cuántos bloques usar?</p>
                     <ul className="space-y-1 list-disc list-inside text-muted-foreground">
-                      <li><strong className="text-foreground">1 bloque</strong>: presupuesto plano. Útil si ya tenés una campaña madura y solo querés escalarla a un ritmo fijo.</li>
+                      <li><strong className="text-foreground">1 bloque</strong>: presupuesto plano. Útil si ya tienes una campaña madura y solo quieres escalarla a un ritmo fijo.</li>
                       <li><strong className="text-foreground">3-5 bloques</strong>: lo más común para lanzamientos. Te permite aumentar gradualmente (estrategia de calentamiento) o bajar para preservar aprendizaje (estrategia de cierre).</li>
-                      <li><strong className="text-foreground">6+ bloques</strong>: granularidad fina, útil cuando manejás presupuestos altos y querés controlar la pendiente con precisión.</li>
+                      <li><strong className="text-foreground">6+ bloques</strong>: granularidad fina, útil cuando manejas presupuestos altos y quieres controlar la pendiente con precisión.</li>
                     </ul>
                   </div>
                   <div>
                     <p className="font-semibold mb-1.5">¿Para qué sirve una estrategia de aumento o reducción?</p>
                     <ul className="space-y-1 list-disc list-inside text-muted-foreground">
-                      <li><strong className="text-foreground">Aumento</strong>: Meta aprende mejor cuando la inversión sube de a poco. Empezás con presupuesto bajo (~30-50% del target) y subís a lo largo de la campaña. Reduce el riesgo de que el algoritmo se "asuste" con un cambio brusco.</li>
+                      <li><strong className="text-foreground">Aumento</strong>: Meta aprende mejor cuando la inversión sube poco a poco. Empiezas con un presupuesto bajo (~30-50% del objetivo) y lo subes a lo largo de la campaña. Reduce el riesgo de que el algoritmo se "asuste" con un cambio brusco.</li>
                       <li><strong className="text-foreground">Reducción</strong>: usar al final de un lanzamiento para no quemar presupuesto cuando el ROAS empieza a caer naturalmente, manteniendo presencia hasta el cierre.</li>
                     </ul>
                   </div>
