@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { CheckCircle2, Calculator } from "lucide-react";
+import { CheckCircle2, Calculator, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -53,6 +53,16 @@ const ThankYou = () => {
               </h1>
               <p className="text-muted-foreground leading-relaxed">
                 Revisalo en tu carpeta de descargas y empezá a aplicar el plan a tus campañas.
+              </p>
+            </div>
+
+            {/* Aviso del email de entrega (decisión de Lio 2026-11-23): el enlace lleva ?k=<contact_id>
+                y desde él la checklist y los 50 formatos no piden registro (contrato fyj_cid). */}
+            <div className="flex items-start gap-3 rounded-lg border border-border/60 bg-accent/20 p-4 text-left">
+              <Mail className="mt-0.5 h-5 w-5 shrink-0 text-foreground/80" aria-hidden="true" />
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                En unos minutos te llegará un email con el enlace, para que lo tengas a mano. Si entras
+                desde ese enlace, tendrás también el resto de recursos sin volver a registrarte.
               </p>
             </div>
 
